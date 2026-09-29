@@ -1,8 +1,8 @@
-from src.indexing.embeddings import GeminiEmbeddingService
+from src.indexing.embeddings import EmbeddingService
 
 
 def main():
-    service = GeminiEmbeddingService()
+    service = EmbeddingService()
 
     texts = [
         "NVIDIA reported strong data center growth.",

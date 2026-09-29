@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 from src.chunking.models import Chunk
-from src.indexing.embeddings import GeminiEmbeddingService
+from src.indexing.embeddings import EmbeddingService
 from src.indexing.qdrant import QdrantStore
 
 
@@ -33,7 +33,7 @@ def main():
           len(chunk.text),
       )
 
-    embedding_service = GeminiEmbeddingService()
+    embedding_service = EmbeddingService()
 
     texts = [
         chunk.text

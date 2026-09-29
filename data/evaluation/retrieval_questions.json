@@ -1,0 +1,303 @@
+[
+  {
+    "id": "nvda_revenue_2026",
+    "query": "What was NVIDIA's fiscal 2026 revenue?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "215.9 billion"
+  },
+  {
+    "id": "nvda_revenue_growth_2026",
+    "query": "How much did NVIDIA's revenue grow in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "65%"
+  },
+  {
+    "id": "nvda_operating_income_2026",
+    "query": "What was NVIDIA's operating income in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "130.4 billion"
+  },
+  {
+    "id": "nvda_operating_income_growth_2026",
+    "query": "How much did NVIDIA's operating income increase in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "60%"
+  },
+  {
+    "id": "nvda_gross_margin_2026",
+    "query": "What was NVIDIA's gross margin in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "71.1%"
+  },
+  {
+    "id": "nvda_eps_2026",
+    "query": "What was NVIDIA's diluted EPS in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "$4.90"
+  },
+  {
+    "id": "nvda_eps_growth_2026",
+    "query": "How much did NVIDIA's diluted EPS increase in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "67%"
+  },
+  {
+    "id": "nvda_compute_networking_revenue_2026",
+    "query": "What was NVIDIA's Compute & Networking revenue in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "$193.5 billion"
+  },
+  {
+    "id": "nvda_graphics_revenue_2026",
+    "query": "What was NVIDIA's Graphics revenue in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "$22.5 billion"
+  },
+  {
+    "id": "nvda_datacenter_revenue_2026",
+    "query": "What was NVIDIA's Data Center revenue in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "$193.7 billion"
+  },
+  {
+    "id": "nvda_datacenter_growth_2026",
+    "query": "How much did NVIDIA's Data Center revenue grow year over year in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "68%"
+  },
+  {
+    "id": "nvda_gaming_revenue_2026",
+    "query": "What was NVIDIA's Gaming revenue in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "$16.0 billion"
+  },
+  {
+    "id": "nvda_professional_visualization_revenue_2026",
+    "query": "What was NVIDIA's Professional Visualization revenue in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "$3.2 billion"
+  },
+  {
+    "id": "nvda_automotive_revenue_2026",
+    "query": "What was NVIDIA's Automotive revenue in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "$2.3 billion"
+  },
+  {
+    "id": "nvda_operating_cash_flow_2026",
+    "query": "How much operating cash flow did NVIDIA generate in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "$103 billion"
+  },
+  {
+    "id": "nvda_shareholder_returns_2026",
+    "query": "How much capital did NVIDIA return to shareholders in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "$41 billion"
+  },
+  {
+    "id": "nvda_networking_revenue_2026",
+    "query": "What was NVIDIA's networking revenue in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "exceeded $31 billion"
+  },
+  {
+    "id": "nvda_sovereign_ai_revenue_2026",
+    "query": "What happened to NVIDIA's sovereign AI business in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "more than tripled to over $30 billion"
+  },
+  {
+    "id": "nvda_blackwell_hopper_inference",
+    "query": "How did Blackwell compare with Hopper in throughput per megawatt?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "50x higher throughput per megawatt"
+  },
+  {
+    "id": "nvda_blackwell_token_cost",
+    "query": "How did Blackwell compare with Hopper in cost per token?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "35x lower cost per token"
+  },
+  {
+    "id": "nvda_vera_rubin",
+    "query": "What is NVIDIA Vera Rubin?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "an AI factory platform"
+  },
+  {
+    "id": "nvda_cuda_anniversary",
+    "query": "How long has NVIDIA CUDA been in existence as of fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "20th anniversary"
+  },
+  {
+    "id": "nvda_ai_five_layers",
+    "query": "What are the five layers of NVIDIA's AI stack?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "energy, compute, infrastructure, models, and applications"
+  },
+  {
+    "id": "nvda_inference_workload",
+    "query": "What became the dominant AI workload in fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "inference"
+  },
+  {
+    "id": "nvda_ai_factory_definition",
+    "query": "How does NVIDIA describe an AI factory?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "a production system"
+  },
+  {
+    "id": "nvda_ai_factory_output",
+    "query": "What does an AI factory manufacture according to NVIDIA?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "tokens"
+  },
+  {
+    "id": "nvda_agentic_ai",
+    "query": "What capabilities does NVIDIA associate with agentic AI?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "perceives, reasons, plans, and acts"
+  },
+  {
+    "id": "nvda_physical_ai",
+    "query": "What does NVIDIA mean by physical AI?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "Robotics, autonomous vehicles, and intelligent machines"
+  },
+  {
+    "id": "nvda_open_models",
+    "query": "How many open models does NVIDIA say now span major AI domains?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "Nearly 3 million open models"
+  },
+  {
+    "id": "nvda_open_model_families",
+    "query": "What NVIDIA model families are mentioned for reasoning, physical AI, robotics, autonomous driving, biology, and weather?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "Nemotron, Cosmos, GR00T, Alpamayo, BioNeMo, and Earth-2"
+  },
+  {
+    "id": "nvda_blackwell_rubin_revenue_visibility",
+    "query": "What cumulative Blackwell and Rubin revenue does NVIDIA say it has visibility into from 2025 through 2027?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "more than $1 trillion"
+  },
+  {
+    "id": "nvda_blackwell_capacity",
+    "query": "How much Blackwell AI factory capacity had major customers deployed according to NVIDIA?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "nearly 9 gigawatts"
+  },
+  {
+    "id": "nvda_h20_export_controls",
+    "query": "What product was affected by additional export controls during the first half of fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "H20"
+  },
+  {
+    "id": "nvda_china_export_controls",
+    "query": "What market is specifically discussed in NVIDIA's export control risks?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "China"
+  },
+  {
+    "id": "nvda_supply_chain_concentration",
+    "query": "Where is NVIDIA's supply chain mainly concentrated?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "Asia"
+  },
+  {
+    "id": "nvda_semiconductor_foundries",
+    "query": "Which companies does NVIDIA identify as foundries producing its semiconductor wafers?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd."
+  },
+  {
+    "id": "nvda_memory_suppliers",
+    "query": "Which companies does NVIDIA identify as memory suppliers?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "SK Hynix Inc., Micron Technology, Inc., and Samsung"
+  },
+  {
+    "id": "nvda_competition_factors",
+    "query": "What does NVIDIA identify as principal competitive factors in its market?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "performance, breadth of product offerings, access to customers and partners and distribution channels, software support"
+  },
+  {
+    "id": "nvda_fiscal_definition",
+    "query": "How does NVIDIA define fiscal 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "the Company's fiscal year ended on the last Sunday in January of the stated year"
+  },
+  {
+    "id": "nvda_annual_meeting_date",
+    "query": "When was NVIDIA's 2026 annual meeting scheduled?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "Wednesday, June 24, 2026 at 9:00 a.m. Pacific Time"
+  },
+  {
+    "id": "nvda_board_size",
+    "query": "How many directors were nominated for election at NVIDIA's 2026 annual meeting?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "ten directors"
+  },
+  {
+    "id": "nvda_new_director",
+    "query": "Who was appointed to NVIDIA's newly created directorship effective July 13, 2026?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "Suzanne Nora Johnson"
+  },
+  {
+    "id": "nvda_record_date",
+    "query": "What was the record date for NVIDIA's 2026 annual meeting?",
+    "company": "NVIDIA",
+    "fiscal_year": 2026,
+    "expected_text": "April 27, 2026"
+  }
+]

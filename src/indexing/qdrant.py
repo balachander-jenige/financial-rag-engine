@@ -18,7 +18,7 @@ load_dotenv()
 class QdrantStore:
     def __init__(
         self,
-        vector_size: int = 768,
+        vector_size: int | None = None,
     ) -> None:
 
         self.url = os.getenv(
@@ -31,7 +31,19 @@ class QdrantStore:
             "financial_filings_v1",
         )
 
-        self.vector_size = vector_size
+        # Use explicitly supplied size if provided.
+        # Otherwise read the embedding dimension
+        # from the environment.
+        self.vector_size = (
+            vector_size
+            if vector_size is not None
+            else int(
+                os.getenv(
+                    "EMBEDDING_DIMENSIONS",
+                    "1536",
+                )
+            )
+        )
 
         self.client = QdrantClient(
             url=self.url,
@@ -39,8 +51,8 @@ class QdrantStore:
 
     def create_collection(self) -> None:
         """
-        Create the Qdrant collection if it does not
-        already exist.
+        Create the Qdrant collection if it
+        does not already exist.
         """
 
         if self.client.collection_exists(
@@ -65,6 +77,11 @@ class QdrantStore:
             f"{self.collection_name}"
         )
 
+        print(
+            f"Vector size: "
+            f"{self.vector_size}"
+        )
+
     def upsert_chunks(
         self,
         chunks: list[Chunk],
@@ -74,8 +91,12 @@ class QdrantStore:
         Insert or update chunks and their vectors.
 
         Qdrant point IDs must be unsigned integers
-        or UUIDs, so we generate a deterministic UUID
-        from our human-readable chunk_id.
+        or UUIDs.
+
+        We generate a deterministic UUID from the
+        human-readable chunk_id so re-indexing the
+        same chunk updates it instead of creating
+        a duplicate.
         """
 
         if len(chunks) != len(vectors):
@@ -91,17 +112,17 @@ class QdrantStore:
             vectors,
             strict=True,
         ):
+            # Validate embedding dimensions before
+            # sending anything to Qdrant.
             if len(vector) != self.vector_size:
                 raise ValueError(
                     f"Expected vector size "
                     f"{self.vector_size}, "
-                    f"got {len(vector)}"
+                    f"got {len(vector)} "
+                    f"for chunk {chunk.chunk_id}"
                 )
 
-            # Deterministic UUID:
-            #
-            # The same chunk_id always produces
-            # the same Qdrant point ID.
+            # Deterministic Qdrant point ID.
             point_id = str(
                 uuid.uuid5(
                     uuid.NAMESPACE_URL,
@@ -161,3 +182,13 @@ class QdrantStore:
         )
 
         return result.points
+
+    def get_collection_info(self):
+        """
+        Return information about the current
+        Qdrant collection.
+        """
+
+        return self.client.get_collection(
+            self.collection_name
+        )
