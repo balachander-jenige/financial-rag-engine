@@ -1,0 +1,32 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.log
+
+# Virtual environments
+.venv/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Local source documents and generated outputs
+/data/raw/
+/data/processed/
+
+# Local scratch notes
+/cmd.txt
+/folder.txt
+
+# OS metadata
+.DS_Store
