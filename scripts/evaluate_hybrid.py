@@ -1,6 +1,8 @@
-from src.evaluation.dataset import (
-    load_retrieval_dataset,
-)
+from src.evaluation.dataset import load_retrieval_dataset
+from src.indexing.embeddings import EmbeddingService
+from src.indexing.qdrant import QdrantStore
+from src.retrieval.dense import DenseRetriever
+from src.retrieval.hybrid import HybridRetriever
 from src.retrieval.sparse import SparseRetriever
 
 
@@ -12,7 +14,25 @@ def main():
         f"evaluation questions"
     )
 
-    retriever = SparseRetriever(
+    embedding_service = EmbeddingService()
+    store = QdrantStore()
+
+    # Get a larger candidate pool from each retriever.
+    dense_retriever = DenseRetriever(
+        embedding_service=embedding_service,
+        store=store,
+        top_k=20,
+    )
+
+    sparse_retriever = SparseRetriever(
+        top_k=20,
+    )
+
+    # Return 10 final hybrid results because
+    # we want to calculate Hit@10.
+    retriever = HybridRetriever(
+        dense_retriever=dense_retriever,
+        sparse_retriever=sparse_retriever,
         top_k=10,
     )
 
@@ -78,7 +98,7 @@ def main():
     total = len(dataset)
 
     print("\n" + "=" * 60)
-    print("SPARSE RETRIEVAL V1")
+    print("HYBRID RETRIEVAL V1")
     print("=" * 60)
 
     print(f"Questions: {total}")

@@ -37,12 +37,9 @@ def evaluate_example(
         results,
         start=1,
     ):
-        payload = result.payload or {}
-
-        text = payload.get(
-            "text",
-            "",
-        ).lower()
+        # RetrievalResult now contains
+        # the text directly.
+        text = result.text.lower()
 
         if expected in text:
             first_relevant_rank = rank
@@ -50,7 +47,7 @@ def evaluate_example(
 
     reciprocal_rank = (
         1 / first_relevant_rank
-        if first_relevant_rank
+        if first_relevant_rank is not None
         else 0.0
     )
 

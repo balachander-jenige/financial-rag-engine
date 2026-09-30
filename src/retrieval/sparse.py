@@ -5,6 +5,7 @@ from pathlib import Path
 from rank_bm25 import BM25Okapi
 
 from src.chunking.models import Chunk
+from src.retrieval.models import RetrievalResult
 
 
 class SparseRetriever:
@@ -86,7 +87,7 @@ class SparseRetriever:
         self,
         query: str,
         top_k: int | None = None,
-    ) -> list[tuple[Chunk, float]]:
+    ) -> list[RetrievalResult]:
 
         if not query.strip():
             raise ValueError(
@@ -113,10 +114,32 @@ class SparseRetriever:
             reverse=True,
         )[:limit]
 
-        return [
-            (
-                self.chunks[index],
-                float(scores[index]),
+        results: list[RetrievalResult] = []
+
+        for index in ranked_indices:
+            chunk = self.chunks[index]
+
+            result = RetrievalResult(
+                chunk_id=chunk.chunk_id,
+                document_id=chunk.document_id,
+                company=chunk.company,
+                fiscal_year=chunk.fiscal_year,
+
+                major_section=chunk.major_section,
+                subsections=chunk.subsections,
+
+                page_start=chunk.page_start,
+                page_end=chunk.page_end,
+
+                text=chunk.text,
+
+                score=float(
+                    scores[index]
+                ),
+
+                retrieval_method="sparse",
             )
-            for index in ranked_indices
-        ]
+
+            results.append(result)
+
+        return results

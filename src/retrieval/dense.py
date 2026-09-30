@@ -1,6 +1,7 @@
 from src.indexing.embeddings import EmbeddingService
 from src.indexing.qdrant import QdrantStore
 from src.observability.tracing import tracer
+from src.retrieval.models import RetrievalResult
 
 
 class DenseRetriever:
@@ -17,7 +18,8 @@ class DenseRetriever:
     def retrieve(
         self,
         query: str,
-    ):
+    ) -> list[RetrievalResult]:
+
         if not query.strip():
             raise ValueError(
                 "Query cannot be empty"
@@ -31,8 +33,6 @@ class DenseRetriever:
             "dense_retrieval"
         ) as span:
 
-            # Store useful information
-            # about this retrieval request.
             span.set_attribute(
                 "rag.query",
                 query,
@@ -70,18 +70,68 @@ class DenseRetriever:
                 "qdrant_search"
             ) as search_span:
 
-                results = self.store.search(
+                qdrant_results = self.store.search(
                     query_vector=query_vector,
                     limit=self.top_k,
                 )
 
                 search_span.set_attribute(
                     "qdrant.result_count",
-                    len(results),
+                    len(qdrant_results),
                 )
 
             # -----------------------------------
-            # Retrieval result metadata
+            # Convert Qdrant results into
+            # our common RetrievalResult model
+            # -----------------------------------
+
+            results: list[RetrievalResult] = []
+
+            for result in qdrant_results:
+
+                payload = result.payload or {}
+
+                retrieval_result = RetrievalResult(
+                    chunk_id=payload["chunk_id"],
+                    document_id=payload["document_id"],
+                    company=payload["company"],
+                    fiscal_year=payload["fiscal_year"],
+
+                    major_section=payload.get(
+                        "major_section"
+                    ),
+
+                    subsections=payload.get(
+                        "subsections",
+                        [],
+                    ),
+
+                    page_start=payload.get(
+                        "page_start"
+                    ),
+
+                    page_end=payload.get(
+                        "page_end"
+                    ),
+
+                    text=payload.get(
+                        "text",
+                        "",
+                    ),
+
+                    score=float(
+                        result.score
+                    ),
+
+                    retrieval_method="dense",
+                )
+
+                results.append(
+                    retrieval_result
+                )
+
+            # -----------------------------------
+            # Phoenix metadata
             # -----------------------------------
 
             span.set_attribute(
@@ -90,33 +140,20 @@ class DenseRetriever:
             )
 
             if results:
+
                 span.set_attribute(
                     "rag.top_score",
-                    float(results[0].score),
+                    results[0].score,
                 )
 
-                top_payload = (
-                    results[0].payload or {}
+                span.set_attribute(
+                    "rag.top_company",
+                    results[0].company,
                 )
 
-                company = top_payload.get(
-                    "company"
+                span.set_attribute(
+                    "rag.top_chunk_id",
+                    results[0].chunk_id,
                 )
-
-                if company:
-                    span.set_attribute(
-                        "rag.top_company",
-                        company,
-                    )
-
-                chunk_id = top_payload.get(
-                    "chunk_id"
-                )
-
-                if chunk_id:
-                    span.set_attribute(
-                        "rag.top_chunk_id",
-                        chunk_id,
-                    )
 
             return results

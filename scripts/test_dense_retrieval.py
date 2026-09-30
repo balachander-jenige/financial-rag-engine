@@ -26,50 +26,46 @@ def main():
         results,
         start=1,
     ):
-        payload = result.payload or {}
-
         print("\n" + "=" * 70)
 
         print("RANK:", rank)
         print("SCORE:", result.score)
+        print("METHOD:", result.retrieval_method)
+
+        print(
+            "CHUNK ID:",
+            result.chunk_id,
+        )
 
         print(
             "COMPANY:",
-            payload.get("company"),
+            result.company,
         )
 
         print(
             "YEAR:",
-            payload.get("fiscal_year"),
+            result.fiscal_year,
         )
 
         print(
             "MAJOR SECTION:",
-            payload.get(
-                "major_section"
-            ),
+            result.major_section,
         )
 
         print(
             "SUBSECTIONS:",
-            payload.get("subsections"),
+            result.subsections,
         )
 
         print(
             "PAGES:",
-            payload.get("page_start"),
+            result.page_start,
             "-",
-            payload.get("page_end"),
+            result.page_end,
         )
 
         print("\nTEXT PREVIEW:")
-
-        print(
-            payload.get(
-                "text",
-                "",
-            )[:800]
-        )
+        print(result.text[:800])
 
 
 if __name__ == "__main__":
